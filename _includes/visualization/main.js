@@ -335,8 +335,8 @@ raycaster.params.Points.threshold = 0.01;
 let mouse = new THREE.Vector2();
 
 function onMouseMove(event) {
-    mouse.x = ( (event.pageX - canvasHolder.offsetLeft) / canvasHolder.clientWidth ) * 2 - 1;
-    mouse.y = - ( (event.pageY - canvasHolder.offsetTop) / canvasHolder.clientHeight ) * 2 + 1;
+    mouse.x = ( (event.offsetX) / canvasHolder.clientWidth ) * 2 - 1;
+    mouse.y = - ( (event.offsetY) / canvasHolder.clientHeight ) * 2 + 1;
 }
 function onMouseDown() {
     disallowSprites();
