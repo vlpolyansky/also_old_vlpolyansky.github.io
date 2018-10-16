@@ -1,0 +1,60 @@
+{
+  "labels" : [
+    {
+      "folder": "mnist2/mnist_all_0",
+      "name": "0",
+      "key": 48
+    },
+    {
+      "folder": "mnist2/mnist_all_1",
+      "name": "1",
+      "key": 49
+    },
+    {
+      "folder": "mnist2/mnist_all_2",
+      "name": "2",
+      "key": 50
+    },
+    {
+      "folder": "mnist2/mnist_all_3",
+      "name": "3",
+      "key": 51
+    },
+    {
+      "folder": "mnist2/mnist_all_4",
+      "name": "4",
+      "key": 52
+    },
+    {
+      "folder": "mnist2/mnist_all_5",
+      "name": "5",
+      "key": 53
+    },
+    {
+      "folder": "mnist2/mnist_all_6",
+      "name": "6",
+      "key": 54
+    },
+    {
+      "folder": "mnist2/mnist_all_7",
+      "name": "7",
+      "key": 55
+    },
+    {
+      "folder": "mnist2/mnist_all_8",
+      "name": "8",
+      "key": 56
+    },
+    {
+      "folder": "mnist2/mnist_all_9",
+      "name": "9",
+      "key": 57
+    },
+    {
+      "folder": "mnist2/mnist_all_all",
+      "name": "All",
+      "key": 8
+    }
+  ],
+  "initId": 10
+}
