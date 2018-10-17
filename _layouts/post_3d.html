@@ -22,7 +22,17 @@
                     <style>
                       canvas { width: inherit; position: relative; top: 0;}
 
-                      #logs {
+                      .canvas-holder {
+                        position: relative;
+                        width: 100%;
+                        /*padding-top: 100%;*/
+                      }
+                      .vis-box {
+                        position: relative;
+                        width: 100%;
+                        /*padding-top: 100%;*/
+                      }
+                      .logs {
                         position: absolute;
                         bottom: 15px;
                         left: 15px;
@@ -34,7 +44,7 @@
                         color: gray;
                         z-index: 1;
                       }
-                      #info {
+                      .info {
                         position: absolute;
                         top: 15px;
                         /*right: 15px;*/
@@ -46,6 +56,7 @@
                         color: lightblue;
                         z-index: 1;
                       }
+
                     </style>
 
                     {% if page.toc %}

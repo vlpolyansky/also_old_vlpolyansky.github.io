@@ -5,69 +5,6 @@ Array.prototype.subarray = function(start, end) {
     return this.slice(start, this.length + 1 - (end * -1));
 };
 
-function loadarray(path, parse, skip = 0) {
-    var client = new XMLHttpRequest();
-    var data = undefined;
-    client.open('GET', path, false);
-    client.onreadystatechange = function() {
-        if (client.readyState === XMLHttpRequest.DONE && client.status === 200) {
-            var lines = client.responseText.split('\n');
-            lines = lines.subarray(skip, -2);
-            data = [];
-            for (var i = 0; i < lines.length; i++) {
-                var coords = lines[i].split(' ');
-                data.push([]);
-                for (var j = 0; j < coords.length; j++) {
-                    data[i].push(parse(coords[j]));
-                }
-            }
-        }
-    };
-    try {
-        client.send();
-    } catch (e) {
-    }
-
-    return data;
-}
-
-function loadtext(path) {
-    var client = new XMLHttpRequest();
-    var data = undefined;
-    client.open('GET', path, false);
-    client.onreadystatechange = function() {
-        if (client.readyState === XMLHttpRequest.DONE && client.status === 200) {
-            data = client.responseText;
-        }
-    };
-    try {
-        client.send();
-    } catch (e) { }
-
-    return data;
-}
-
-function loadbytearray(path, callback, tag=null) {
-    if (tag != null) {
-        log('Loading "' + tag + '" ...');
-    }
-    var client = new XMLHttpRequest();
-    client.open('GET', path, true);
-    client.responseType = 'arraybuffer';
-    var array = undefined;
-
-    client.onloadend = function() {
-        var arrayBuffer = client.response;
-        if (arrayBuffer) {
-            if (tag != null) {
-                log('"' + tag + '" loaded');
-            }
-            callback(new Uint8Array(arrayBuffer));
-        }
-    };
-    client.send();
-}
-
 function rainbow(numOfSteps, step) {
     // This function generates vibrant, "evenly spaced" colours (i.e. no clustering). This is ideal for creating easily distinguishable vibrant markers in Google Maps and other apps.
     // Adam Cole, 2011-Sept-14
@@ -98,19 +35,6 @@ function unique(arr) {
         }
     }
     return a;
-}
-
-function log(message) {
-    let text = document.getElementById('logs').innerText + '\n' + message;
-    text = text.split('\n');
-    let idx0 = text.length > 4 ? text.length - 4 : 0;
-    text = text.slice(idx0).join('\n');
-    document.getElementById('logs').innerText = text;
-    console.log(message);
-}
-
-function clear_logs() {
-    document.getElementById('logs').innerText = '';
 }
 
 function get_yadisk_link(code) {
