@@ -1,3 +1,5 @@
+let animations = [];
+
 let visualize_everything = function(data_json, canvas_id) {
 
     String.prototype.format = function () {
@@ -11,7 +13,7 @@ let visualize_everything = function(data_json, canvas_id) {
     };
 
     let log = function(message) {
-        let elem = document.getElementById(canvas_id).getElementsByClassName('logs');
+        let elem = document.getElementById(canvas_id).getElementsByClassName('logs')[0];
         let text = elem.innerText + '\n' + message;
         text = text.split('\n');
         let idx0 = text.length > 4 ? text.length - 4 : 0;
@@ -108,13 +110,14 @@ let visualize_everything = function(data_json, canvas_id) {
 // Apply your desired aspect ratio
     let width = canvasHolder.clientWidth;
     let height = width * 1.0;
+    canvasHolder.style.paddingTop = "0";
 // let height = canvasHolder.clientHeight;
-    canvasHolder.clientHeight = height;
+//     canvasHolder.clientHeight = height;
     let renderer = new THREE.WebGLRenderer();
     renderer.setSize(width, height);
     canvasHolder.appendChild(renderer.domElement);
 
-    let camera = new THREE.PerspectiveCamera(75, canvasHolder.clientWidth / canvasHolder.clientHeight, 0.1, 1000);
+    let camera = new THREE.PerspectiveCamera(75, canvasHolder.clientWidth / height, 0.1, 1000);
     let controls = new THREE.OrbitControls(camera, canvasHolder);
 
 

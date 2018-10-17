@@ -46,3 +46,18 @@ function get_yadisk_link(code) {
 function distSqr(a, b) {
     return (a[0] - b[0]) * (a[0] - b[0]) + (a[1] - b[1]) * (a[1] - b[1]) + (a[2] - b[2]) * (a[2] - b[2]);
 }
+
+function prepareCanvasHolder(canvasHolderId, dataJson) {
+    let ch = document.getElementById(canvasHolderId);
+    let preview = ch.getElementsByClassName('preview')[0];
+    ch.clientHeight = ch.clientWidth;
+    let foo = function() {
+        preview.innerHTML = 'Loading...';
+        setTimeout(function(){
+            animations.push(visualize_everything(dataJson, canvasHolderId));
+            ch.removeChild(preview);
+        }, 100);
+    };
+    document.currentScript.parentElement.addEventListener('mousedown', foo, {once:true});
+
+}
